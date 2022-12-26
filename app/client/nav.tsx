@@ -4,10 +4,14 @@ import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "info", href: "", hoverColor: "bg-indigo-500" },
-  { name: "dump", href: "dump", hoverColor: "bg-sky-500" },
-  { name: "employment", href: "employment", hoverColor: "bg-emerald-500" },
-  { name: "???", href: "???", hoverColor: "bg-rose-500" },
+  { name: "info", href: "", hoverColor: "hover:bg-indigo-500" },
+  { name: "dump", href: "dump", hoverColor: "hover:bg-sky-500" },
+  {
+    name: "employment",
+    href: "employment",
+    hoverColor: "hover:bg-emerald-500",
+  },
+  { name: "???", href: "???", hoverColor: "hover:bg-rose-500" },
 ];
 export default function Nav() {
   return (
@@ -18,11 +22,7 @@ export default function Nav() {
             {navigation.map((item) => (
               <div
                 key={item.name}
-                className={
-                  "px-2 py-1 rounded-lg transition ease-in-out delay-75 hover:" +
-                  item.hoverColor +
-                  " hover:text-white hover:shadow-lg duration-200"
-                }
+                className={`px-2 py-1 rounded-lg transition ease-in-out delay-75 ${item.hoverColor} hover:text-white hover:shadow-lg duration-200`}
               >
                 <Link
                   href={item.href}
