@@ -9,12 +9,11 @@ const navigation = [
   { name: "???", href: "???", hoverColor: "bg-rose-500" },
 ];
 
-export default function Example() {
+export default function Info() {
   return (
     <div className="mx-10 grid grid-cols-1">
-      <div className="m-2 md:m-10" />
       <Nav />
-      <div className="m-10 md:m-24" />
+      <div className="m-16" />
       <div>
         <div className="flex flex-row justify-center">
           <div className="flex justify-center">
@@ -22,7 +21,7 @@ export default function Example() {
               <div className="flex flex-row justify-center w-full">
                 <div className="hidden md:visible relative w-60 h-60 sm:w-80 sm:h-80 lg:w-96 lg:h-96 md:flex md:justify-center rounded-full">
                   <Image
-                    src="/bike.png"
+                    src="/he_cycling.png"
                     alt="Picture of the something nice"
                     fill
                     style={{ objectFit: "cover", borderRadius: ".5rem" }}
@@ -45,7 +44,7 @@ export default function Example() {
                 <div className="flex flex-row justify-center">
                   <div className="md:hidden relative w-60 h-60 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex justify-center">
                     <Image
-                      src="/bike.png"
+                      src="/he_cycling.png"
                       alt="Picture of the something nice"
                       fill
                       style={{ objectFit: "cover", borderRadius: ".5rem" }}
@@ -63,7 +62,7 @@ export default function Example() {
                     <li>
                       {"- skilled at AWS, typescript, golang, python... (more)"}
                     </li>
-                    <li>{"- listening to (do actual spotify)"}</li>
+                    <li>{"- listening to something that sounds cool"}</li>
                   </ul>
                 </div>
               </div>
@@ -71,11 +70,7 @@ export default function Example() {
           </div>
         </div>
       </div>
-      <div className="m-8 md:mt-36 md:mb-24 flex justify-center">
-        <h1>{"~~~~~~   ~~~~~~"}</h1>
-      </div>
       <Footer />
-      <div className="m-10" />
     </div>
   );
 }

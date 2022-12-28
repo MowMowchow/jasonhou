@@ -10,7 +10,7 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-export default function Dump() {
+export default function Example() {
   return (
     <div className="mx-10 grid grid-cols-1">
       <Nav />
