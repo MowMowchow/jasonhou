@@ -33,7 +33,7 @@ export default function Employment() {
   return (
     <div className="mx-10 grid grid-cols-1">
       <Nav />
-      <div className="m-10" />
+      <div className="m-0 sm:m-4 md:m-10" />
       <div className="flex justify-center">
         <div className="xs:11/12 sm:w-10/12 lg:w-7/12 2xl:w-5/12">
           <div>

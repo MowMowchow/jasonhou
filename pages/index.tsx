@@ -13,7 +13,7 @@ export default function Info() {
   return (
     <div className="mx-10 grid grid-cols-1">
       <Nav />
-      <div className="m-16" />
+      <div className="m-0 sm:m-4 md:m-16" />
       <div>
         <div className="flex flex-row justify-center">
           <div className="flex justify-center">
