@@ -36,7 +36,7 @@ export default function Nav() {
                 </div>
               ))}
             </div>
-            <div className="md:hidden mx-10 my-7 md:m-0">
+            <div className="md:hidden mx-1 my-7 md:m-0">
               <Popover.Button className="outline-none">
                 <div className="px-2 py-1 rounded-lg transition ease-in-out delay-75 hover:bg-indigo-500 hover:text-white duration-200 ">
                   <h1 className="font-poppins font-normal text-2xl">
