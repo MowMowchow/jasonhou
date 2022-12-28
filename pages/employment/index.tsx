@@ -54,7 +54,7 @@ export default function Employment() {
             </div>
             <div className="grid grid-cols-1">
               {jobs.map((job) => (
-                <div className="mx-1">
+                <div key={job.name} className="mx-1">
                   <div className="flex flex-row justify-start">
                     <div className="m-1 mr-2">
                       <div className="relative w-10 h-10 lg:w-12 lg:h-12 md:flex md:justify-center rounded-full">
@@ -77,12 +77,9 @@ export default function Employment() {
                   </div>
                   <div className="mt-1 ml-1">
                     <p className="text-md">
-                      but also the leap into electronic typesetting, remaining
-                      essentially unchanged. It was popularised in the 1960s
-                      with the release of Letraset sheets containing Lorem Ipsum
-                      passages, and more recently with desktop publishing
-                      software like Aldus PageMaker including versions of Lorem
-                      Ipsum"
+                      {
+                        "but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Let raset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+                      }
                     </p>
                   </div>
                   <div className="m-8" />
