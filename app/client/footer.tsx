@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="flex justify-center">
             <ul className="text-normal font-poppins list-none leading-loose">
               <li className="text-center">
-                <Link href={"/employment"}>resume</Link>
+                <Link href={"/resume.pdf"}>resume</Link>
               </li>
               <li className="text-center">
                 <Link href={"/employment"}>projects</Link>
