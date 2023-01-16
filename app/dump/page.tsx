@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Nav from "../../app/client/nav";
+import Nav from "../client/nav";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -10,11 +10,6 @@ const navigation = [
   { name: "Company", href: "#" },
 ];
 
-export default function Dump() {
-  return (
-    <div className="mx-10 grid grid-cols-1">
-      <Nav />
-      <div>WIP</div>
-    </div>
-  );
+export default function Page() {
+  return <div>WIP</div>;
 }

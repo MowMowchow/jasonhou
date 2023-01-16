@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Footer from "../../app/client/footer";
-import Nav from "../../app/client/nav";
 
 const jobs = [
   {
@@ -29,11 +28,10 @@ const jobs = [
   },
 ];
 
-export default function Employment() {
+export default function Page() {
   return (
-    <div className="mx-10 grid grid-cols-1">
-      <Nav />
-      <div className="m-0 sm:m-4 md:m-10" />
+    <div className="grid grid-cols-1">
+      <div className="m-0 sm:m-3 md:m-8" />
       <div className="flex justify-center">
         <div className="xs:11/12 sm:w-10/12 lg:w-7/12 2xl:w-5/12">
           <div>

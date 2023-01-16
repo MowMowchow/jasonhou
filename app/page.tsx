@@ -1,18 +1,10 @@
 import Image from "next/image";
+import CurrentTrackBlob from "../app/client/currentTrack";
 import Footer from "../app/client/footer";
-import Nav from "../app/client/nav";
 
-const navigation = [
-  { name: "info", href: "", hoverColor: "bg-indigo-500" },
-  { name: "dump", href: "dump", hoverColor: "bg-sky-500" },
-  { name: "employment", href: "employment", hoverColor: "bg-emerald-500" },
-  { name: "???", href: "???", hoverColor: "bg-rose-500" },
-];
-
-export default function Info() {
+export default function Page() {
   return (
-    <div className="mx-10 grid grid-cols-1">
-      <Nav />
+    <div className="grid grid-cols-1">
       <div className="m-0 sm:m-4 md:m-16" />
       <div>
         <div className="flex flex-row justify-center">
@@ -28,7 +20,7 @@ export default function Info() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center mt-4">
                 <div className="flex flex-col justify-start mb-16 md:m-0">
                   <div className="relative">
                     <div className="absolute bottom-1 md:bottom-4 left-0">
@@ -51,7 +43,7 @@ export default function Info() {
                     />
                   </div>
                 </div>
-                <div className="mt-16 md:mt-12">
+                <div className="mt-16 md:mt-8">
                   <p className="text-normal">
                     {
                       "When I'm not writing code I'm riding my bike, when I'm not riding my bike I'm"
@@ -62,7 +54,13 @@ export default function Info() {
                     <li>
                       {"- skilled at AWS, typescript, golang, python... (more)"}
                     </li>
-                    <li>{"- listening to something that sounds cool"}</li>
+                    <li>
+                      {"- listening to: "}
+                      <br />
+                      <div className="mt-5 flex flex-row justify-center">
+                        <CurrentTrackBlob />
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
