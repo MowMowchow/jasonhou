@@ -19,7 +19,7 @@ export default function CurrentTrackBlob() {
   const getCurrentTrack = async () => {
     try {
       const response = await fetch(
-        "https://z1y2tedpka.execute-api.us-east-1.amazonaws.com/dev/getCurrentTrack"
+        "https://5cmwrin5f3.execute-api.us-east-1.amazonaws.com/dev/getCurrentTrack"
       );
       const responseBody: CurrentTrackResponse = await response.json();
       setCurrentTrack(responseBody.item);
