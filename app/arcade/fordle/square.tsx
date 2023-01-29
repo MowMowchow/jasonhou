@@ -96,8 +96,6 @@ export default function FordleSquare({
     setCurrY(y);
   };
 
-  const handleOnMouseLeave = () => {};
-
   // highlighting
   useEffect(() => {
     if (currVis[y][x] >= 1) {
@@ -153,8 +151,8 @@ export default function FordleSquare({
               onMouseEnter={() => {
                 handleOnMouseEnter();
               }}
-              onMouseLeave={() => {
-                handleOnMouseLeave();
+              onTouchMove={() => {
+                handleOnMouseEnter();
               }}
             >
               <h1 className="text-4xl select-none">{`${currLetter}`}</h1>

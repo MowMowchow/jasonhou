@@ -207,10 +207,12 @@ export default function FordleBoard() {
   return readyToRender ? (
     <>
       <div
-        className="bg-stone-600 w-96 h-96 text-red shadow-xl rounded-md"
+        className="bg-stone-600 w-96 h-96 text-red shadow-xl rounded-md touch-none"
         onMouseDown={() => setIsSelecting(true)}
         onMouseUp={() => setIsSelecting(false)}
         onMouseLeave={() => setIsSelecting(false)}
+        onTouchStart={() => setIsSelecting(true)}
+        onTouchEnd={() => setIsSelecting(false)}
       >
         <div className="grid grid-cols-4 h-full w-full relative items-center">
           {coors.map((coor: any, ind: number) => (

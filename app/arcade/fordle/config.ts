@@ -3,7 +3,7 @@ import { FordleTrie, FordleTrieChild } from "../../../internal/models/fordle";
 export const GET_BOARD_URL =
   process.env?.NEXT_PUBLIC_GET_BOARD_URL !== undefined
     ? process.env.NEXT_PUBLIC_GET_BOARD_URL
-    : "";
+    : "https://8ym9q6svba.execute-api.us-east-1.amazonaws.com/getBoard";
 
 export const Points = [
   0, // len 0
