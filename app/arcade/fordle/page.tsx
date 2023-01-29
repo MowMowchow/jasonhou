@@ -146,6 +146,9 @@ export default function Page() {
             <h1 className="text-4xl">{"~"}</h1>
           )}
         </div>
+        <div className="mb-2 mt-2 w-full flex flex-row justify-center">
+          <h1 className="text-md">{`(press s or hold down) and drag`}</h1>
+        </div>
         <div className="flex flex-row justify-center">
           <FordleBoard />
         </div>

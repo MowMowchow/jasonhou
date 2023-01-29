@@ -151,9 +151,6 @@ export default function FordleSquare({
               onMouseEnter={() => {
                 handleOnMouseEnter();
               }}
-              onTouchMove={() => {
-                handleOnMouseEnter();
-              }}
             >
               <h1 className="text-4xl select-none">{`${currLetter}`}</h1>
             </div>

@@ -191,6 +191,15 @@ export default function FordleBoard() {
     }
   }, [currWord, currWordLen]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "s") setIsSelecting(true);
+    });
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "s") setIsSelecting(false);
+    });
+  }, []);
+
   // RESET WHEN LETTING GO
   useEffect(() => {
     if (!isSelecting) {
@@ -211,8 +220,6 @@ export default function FordleBoard() {
         onMouseDown={() => setIsSelecting(true)}
         onMouseUp={() => setIsSelecting(false)}
         onMouseLeave={() => setIsSelecting(false)}
-        onTouchStart={() => setIsSelecting(true)}
-        onTouchEnd={() => setIsSelecting(false)}
       >
         <div className="grid grid-cols-4 h-full w-full relative items-center">
           {coors.map((coor: any, ind: number) => (
