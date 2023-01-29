@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
 
       <div className="flex justify-center">
-        <div className="grid grid-cols-2 md:grid-cols-4 w-8/12">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:w-5/12 w-7/12">
           <div className="flex justify-center">
             <ul className="text-normal font-poppins list-none leading-loose">
               <li className="text-center">
@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="flex justify-center">
             <ul className="text-normal list-none leading-loose">
               <li className="text-center">
-                <Link href={"/???"}>???</Link>
+                <Link href={"/arcade/fordle"}>???</Link>
               </li>
             </ul>
           </div>

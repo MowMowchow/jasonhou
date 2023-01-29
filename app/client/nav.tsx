@@ -12,7 +12,7 @@ const navigation = [
     href: "employment",
     hoverColor: "hover:bg-emerald-500",
   },
-  { name: "???", href: "extras", hoverColor: "hover:bg-rose-500" },
+  { name: "???", href: "/arcade/fordle", hoverColor: "hover:bg-rose-500" },
 ];
 export default function Nav() {
   return (

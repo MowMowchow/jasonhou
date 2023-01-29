@@ -3,3 +3,19 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+@layer components {
+  .fordle-square {
+    /* clockwise from top right */
+    clip-path: polygon(
+      22% 0%,
+      78% 0%,
+      100% 22%,
+      100% 78%,
+      78% 100%,
+      22% 100%,
+      0% 80%,
+      0% 22%
+    );
+  }
+}

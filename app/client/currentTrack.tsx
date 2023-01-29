@@ -2,13 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CURRENT_TRACK_URL } from "../../config/settings";
 import {
   CurrentTrack,
   CurrentTrackResponse,
 } from "../../internal/models/spotify";
 import { setCustomTimeout } from "../../internal/utils";
 
-// type currentTrackBlobProps = { show: Boolean };
 export default function CurrentTrackBlob() {
   const artistCap = 3;
   let [currentTrackToggle, setCurrentTrackToggle] = useState<boolean>(false);
@@ -18,9 +18,7 @@ export default function CurrentTrackBlob() {
 
   const getCurrentTrack = async () => {
     try {
-      const response = await fetch(
-        "https://8ym9q6svba.execute-api.us-east-1.amazonaws.com/getCurrentTrack"
-      );
+      const response = await fetch(CURRENT_TRACK_URL);
       const responseBody: CurrentTrackResponse = await response.json();
       setCurrentTrack(responseBody.item);
       await setCustomTimeout(5);
