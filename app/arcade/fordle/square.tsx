@@ -58,6 +58,10 @@ export default function FordleSquare({
       "h-5/6 w-5/6 bg-green-500 flex justify-center rounded-lg shadow-xl text-white",
     Invalid:
       "h-5/6 w-5/6 bg-red-500 flex justify-center rounded-lg shadow-xl text-white",
+    Found:
+      "h-5/6 w-5/6 bg-sky-500 flex justify-center rounded-lg shadow-xl text-white",
+    NotFound:
+      "h-5/6 w-5/6 bg-indigo-500 flex justify-center rounded-lg shadow-xl text-white",
   };
 
   const lines = [
@@ -98,17 +102,23 @@ export default function FordleSquare({
 
   // highlighting
   useEffect(() => {
+    // square is in selected path
     if (currVis[y][x] >= 1) {
-      // square is in selected path
-      if (currWordsFound.has(currWord)) {
-        // curr word has been found already
-        setSquareStatecolor(squareStateColors.Used);
-      } else if (isCurrWord) {
-        // new valid word
-        setSquareStatecolor(squareStateColors.Valid);
-      } else {
-        // Invalid Word
-        setSquareStatecolor(squareStateColors.Invalid);
+      if (playState === 1 || playState === 2) {
+        if (currWordsFound.has(currWord)) {
+          // curr word has been found already
+          setSquareStatecolor(squareStateColors.Used);
+        } else if (isCurrWord) {
+          // new valid word
+          setSquareStatecolor(squareStateColors.Valid);
+        } else {
+          // Invalid Word
+          setSquareStatecolor(squareStateColors.Invalid);
+        }
+      } else if (playState === 3) {
+        setSquareStatecolor(squareStateColors.Found);
+      } else if (playState === 4) {
+        setSquareStatecolor(squareStateColors.NotFound);
       }
     } else {
       // idle square

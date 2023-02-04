@@ -1,9 +1,4 @@
-import {
-  bindActionCreators,
-  createAction,
-  createReducer,
-} from "@reduxjs/toolkit";
-import { Set } from "typescript";
+import { createAction, createReducer } from "@reduxjs/toolkit";
 import { Board } from "../../../internal/models/fordle";
 import { RootState } from "../store";
 import { enableMapSet } from "immer";
@@ -14,6 +9,11 @@ enableMapSet();
 export const initialFordleState = {
   fetchingBoard: true,
   playState: 0,
+  // 0 = idle
+  // 1 = playing
+  // 2 = game finished
+  // 3 = game finished -> words found highlighting
+  // 4 = game finished -> words not found highlighting
   currPoints: 0,
   currWord: "",
   currWordLen: 0,

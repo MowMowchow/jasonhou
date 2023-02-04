@@ -47,10 +47,11 @@ export default function FordleBoard() {
   const [currX, setCurrX] = useState(Number);
   const [currY, setCurrY] = useState(Number);
   const [isSelecting, setIsSelecting] = useState(false);
+  const [canSelect, setCanSelect] = useState(false);
   const [readyToRender, setReadyToRender] = useState(false);
 
   // Dispatches
-  function dispatchResetCurrWord() {
+  const dispatchResetCurrWord = () => {
     const tempVis = new Array(currBoardSize)
       .fill(0)
       .map(() => new Array(currBoardSize).fill(0));
@@ -64,9 +65,9 @@ export default function FordleBoard() {
       type: "fordle/resetCurrVis",
       payload: tempVis,
     });
-  }
+  };
 
-  async function fetchBoardDispatch() {
+  const fetchBoardDispatch = async () => {
     dispatchResetCurrWord();
     const tempBoard = await getBoard(currBoardSize);
     dispatch({
@@ -81,27 +82,29 @@ export default function FordleBoard() {
       type: "fordle/setFetchingBoard",
       payload: false,
     });
-  }
+  };
 
   // Check Curr Word Validity
-  function isWord() {
-    const wordIndex = isWordDfs(trie, currWord, 0);
-    if (wordIndex !== -1) {
-      const tempMap = new Map<string, number>(currWordsFound);
-      tempMap.set(currWord, wordIndex);
-      dispatch({
-        type: "fordle/addCurrWordsFound",
-        payload: tempMap,
-      });
-      dispatch({
-        type: "fordle/addToCurrPoints",
-        payload: currWord.length,
-      });
+  const isWord = async () => {
+    if (playState === 1 && !currWordsFound.has(currWord)) {
+      const wordIndex = isWordDfs(trie, currWord, 0);
+      if (wordIndex !== -1) {
+        const tempMap = new Map<string, number>(currWordsFound);
+        tempMap.set(currWord, wordIndex);
+        dispatch({
+          type: "fordle/addCurrWordsFound",
+          payload: tempMap,
+        });
+        dispatch({
+          type: "fordle/addToCurrPoints",
+          payload: currWord.length,
+        });
+      }
     }
-  }
+  };
 
   // THINGS TO DO UPON KEY DOWN
-  function updateCurrWord() {
+  const updateCurrWord = async () => {
     if (
       currVis?.[currY]?.[currX] !== undefined &&
       currVis[currY][currX] === 0
@@ -114,9 +117,9 @@ export default function FordleBoard() {
         type: "fordle/addToCurrWordLen",
       });
     }
-  }
+  };
 
-  function updateCurrWordInfo() {
+  const updateCurrWordInfo = () => {
     const tempVis = new Array(currBoardSize)
       .fill(0)
       .map(() => new Array(currBoardSize).fill(0));
@@ -145,7 +148,7 @@ export default function FordleBoard() {
         payload: false,
       });
     }
-  }
+  };
 
   // Requesting a new board after a game
   useEffect(() => {
@@ -181,24 +184,24 @@ export default function FordleBoard() {
 
   // SELECT ACTION TRIGGER
   useEffect(() => {
-    if (isSelecting && currLetter !== "") {
+    if (canSelect && isSelecting && currLetter !== "") {
       updateCurrWord();
     }
-  }, [isSelecting, currX, currY]);
+  }, [canSelect, isSelecting, currX, currY]);
   useEffect(() => {
-    if (isSelecting && currLetter !== "") {
+    if (canSelect && isSelecting && currLetter !== "") {
       updateCurrWordInfo();
     }
   }, [currWord, currWordLen]);
 
   useEffect(() => {
     document.addEventListener("keydown", (event) => {
-      if (event.key === "s") setIsSelecting(true);
+      if (event.key === "s" && canSelect) setIsSelecting(true);
     });
     document.addEventListener("keyup", (event) => {
-      if (event.key === "s") setIsSelecting(false);
+      if (event.key === "s" && canSelect) setIsSelecting(false);
     });
-  }, []);
+  }, [canSelect]);
 
   // RESET WHEN LETTING GO
   useEffect(() => {
@@ -217,9 +220,13 @@ export default function FordleBoard() {
     <>
       <div
         className="bg-stone-600 w-96 h-96 text-red shadow-xl rounded-md touch-none"
+        onMouseEnter={() => setCanSelect(true)}
         onMouseDown={() => setIsSelecting(true)}
         onMouseUp={() => setIsSelecting(false)}
-        onMouseLeave={() => setIsSelecting(false)}
+        onMouseLeave={() => {
+          setCanSelect(false);
+          setIsSelecting(false);
+        }}
       >
         <div className="grid grid-cols-4 h-full w-full relative items-center">
           {coors.map((coor: any, ind: number) => (
