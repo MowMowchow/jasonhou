@@ -10,8 +10,8 @@ const jobs = [
 		team: "Finance Automation",
 		tech: "Python, Typescript, Django, React, Kafka",
 		description: [
-			"Refactored terms & conditions in various product to a more scalable model and wrote corresponding event architecture",
-			"Led & delivered a high-priority, cross-functional project resulting in the increase of customer tax information collection by 37%",
+			"Refactored models for scalility and wrote corresponding event architecture",
+			"Led an E2E project increasing customer tax information collection by 37%",
 			"Squashed bugs, wrote tests, tooling, and docs for my team as well as others",
 		],
 	},
